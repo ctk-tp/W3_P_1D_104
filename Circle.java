@@ -1,53 +1,46 @@
-package Circle;
-
-/**
- * The Circle class models a circle with a radius and color.
- */
-public class Circle {
+public class Circle extends Shape {
 
     private double radius;
-    private String color;
 
-    // Constructor default
+    // No-arg constructor
     public Circle() {
+        super();
         this.radius = 1.0;
-        this.color = "red";
     }
 
     // Constructor dengan radius
     public Circle(double radius) {
+        super();
         this.radius = radius;
-        this.color = "red";
     }
 
-    // Constructor dengan radius dan color
-    public Circle(double radius, String color) {
+    // Constructor lengkap
+    public Circle(double radius, String color, boolean filled) {
+        super(color, filled);
         this.radius = radius;
-        this.color = color;
     }
 
-    // Getter radius
+    // Getter & Setter
     public double getRadius() {
         return radius;
     }
 
-    // Getter color
-    public String getColor() {
-        return color;
+    public void setRadius(double radius) {
+        this.radius = radius;
     }
 
-    // Setter color
-    public void setColor(String color) {
-        this.color = color;
-    }
-
-    // Luas lingkaran
+    // Method khusus
     public double getArea() {
-        return radius * radius * Math.PI;
+        return Math.PI * radius * radius;
+    }
+
+    public double getPerimeter() {
+        return 2 * Math.PI * radius;
     }
 
     @Override
     public String toString() {
-        return "Circle[radius=" + radius + ", color=" + color + "]";
+        return "A Circle with radius=" + radius +
+                ", which is a subclass of " + super.toString();
     }
 }
